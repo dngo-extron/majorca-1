@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Refresh" content="0; url='https://192.168.1.254'" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bulma.min.css">
+    <script src="sdk.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Find a repository">
+                        </div>
+                        <div class="control">
+                            <a class="button is-info" onclick="location.href='https://192.168.1.254';">
+                                Search
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <p id="time">
+    </p>
+
+    <script>
+        fetch("https://worldtimeapi.org/api/timezone/America/Los_Angeles").then((value) => {
+            value.json().then(data => {
+                document.getElementById("time").innerHTML = "Time: " + data.datetime;
+                console.log(value);
+            });
+
+        });
+
+        
+    </script>
+</body>
+
+</html>
